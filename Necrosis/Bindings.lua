@@ -137,13 +137,15 @@ function Necrosis:BindName()
 	
 	_G["BINDING_NAME_CLICK NecrosisCurseMenuButton:LeftButton"] = self.Config.Menus["Menu des Maledictions"]
 	
-	local buffID = {23, -- curse of weakness
-	                22, -- curse of agony
-	                25, -- curse of tongues
-	                40, -- curse of exhaustion
-	                26, -- curse of the elements
-	                16, -- curse of doom
-	                14} -- corruption
+	local buffID = {23, -- Curse of weakness
+			60, -- Curse of Shadows
+			25, -- Curse of tongues
+			40, -- Curse of exhaustion
+			26, -- Curse of the elements	
+			16, -- Curse of doom
+			22, -- Curse of agony
+			14 -- Corruption
+		       {
 	for i = 1, #buffID, 1 do
 		_G["BINDING_NAME_CLICK NecrosisCurseMenu"..i..":LeftButton"] = self.Spell[ buffID[i] ].Name
 	end

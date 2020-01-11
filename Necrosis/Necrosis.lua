@@ -158,14 +158,15 @@ Local.DefaultConfig = {
 		-- 6 = Mounts
 		-- 7 = Demon menu
 		-- 8 = Curse menu
-	CurseSpellPosition = {1, 2, 3, 4, 5, 6, 7},
+	CurseSpellPosition = {1, 2, 3, 4, 5, 6, 7, 8},
 		-- 1 = Weakness || Faiblesse
-		-- 2 = Agony || Agonie
+		-- 2 = Shadows || Ombres
 		-- 3 = Tongues || Langage
 		-- 4 = Exhaustion || Fatigue
 		-- 5 = Elements
 		-- 6 = Doom || Funeste
-		-- 7 = Corruption (not really a curse, but hey - its useful :)
+	        -- 7 = Agony || Agonie
+		-- 8 = Corruption (not really a curse, but hey - its useful :)
 	-- DemonSpellPosition = {1, 2, 3, 4, 5, 6, 8, 9, 10, -11},
         DemonSpellPosition = {1, 2, 3, 4, 5, 6, 8, 7, 9, 10, -11},
 		-- 1 = Fel Domination || Domination corrompue
@@ -1167,8 +1168,8 @@ function Necrosis:BuildTooltip(button, Type, anchor, sens)
 		end
 	elseif (Type == "Weakness") then
 		Necrosis:ManaCostLocalize(23)
-	elseif (Type == "Agony") then
-		Necrosis:ManaCostLocalize(22)
+	elseif (Type == "Shadows") then
+		Necrosis:ManaCostLocalize(60)
 	elseif (Type == "Tongues") then
 		Necrosis:ManaCostLocalize(25)
 	elseif (Type == "Exhaust") then
@@ -1177,6 +1178,8 @@ function Necrosis:BuildTooltip(button, Type, anchor, sens)
 		Necrosis:ManaCostLocalize(26)
 	elseif (Type == "Doom") then
 		Necrosis:ManaCostLocalize(16)
+	elseif (Type == "Agony") then
+		Necrosis:ManaCostLocalize(22)
 	elseif (Type == "Corruption") then
 		Necrosis:ManaCostLocalize(14)
 	elseif (Type == "TP") then
@@ -1706,13 +1709,15 @@ function Necrosis:UpdateMana()
 
 	if mana then
 		local SpellMana = new("array",
-													 23, -- Curse of weakness
-													 22, -- Curse of agony
-													 25, -- Curse of tongues
-													 40, -- Curse of exhaustion
-													 26, -- Curse of the elements
-													 16, -- Curse of doom
-													 14  -- Corruption
+				                     23, -- Curse of weakness
+				                     60, -- Curse of Shadows
+				                     25, -- Curse of tongues
+				                     40, -- Curse of exhaustion
+				                     26, -- Curse of the elements	
+				                     16, -- Curse of doom
+				                     22, -- Curse of agony
+				                     14 -- Corruption
+			)
 													)
 
 		-- Coloring the button in gray if not enough mana || Coloration du bouton en grisé si pas assez de mana
@@ -2685,14 +2690,15 @@ function Necrosis:CreateMenu()
 		-- Setup the buttons to be displayed on the curse menu || On ordonne et on affiche les boutons dans le menu des malédictions
 		-- MenuID contient l'emplacement des sorts en question dans la table des sorts de Necrosis.
 		local MenuID = new("array",
-												23, -- Curse of weakness
-												22, -- Curse of agony
-												25, -- Curse of tongues
-												40, -- Curse of exhaustion
-												26, -- Curse of the elements
-												16, -- Curse of doom
-												14 -- Corruption
-											 )
+				                     23, -- Curse of weakness
+				                     60, -- Curse of Shadows
+				                     25, -- Curse of tongues
+				                     40, -- Curse of exhaustion
+				                     26, -- Curse of the elements	
+				                     16, -- Curse of doom
+				                     22, -- Curse of agony
+				                     14 -- Corruption
+					    )
 		for index = 1, #NecrosisConfig.CurseSpellPosition, 1 do
 			for sort = 1, #NecrosisConfig.CurseSpellPosition, 1 do
 				-- Si la Malédiction existe, on affiche le bouton dans le menu des curses

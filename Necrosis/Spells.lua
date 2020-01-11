@@ -143,7 +143,8 @@ function Necrosis:SpellLocalize(tooltip)
 			[56] = {Name = GetSpellInfo(133),	Mana = 50,				Length = 0,		Type = 0}, -- NOPE NOT IN Classic  Shadow Cleave || Enchainement d'ombre
 			[57] = {Name = GetSpellInfo(133),	Mana = 50,				Length = 30,	Type = 3}, -- NOPE NOT IN Classic  Immolation Aura || Aura d'immolation
 			[58] = {Name = GetSpellInfo(133),	Mana = 50,				Length = 15,	Type = 3}, --  NOPE NOT IN Classic Challenging Howl || Hurlement de défi
-			[59] = {Name = GetSpellInfo(133),	Mana = 50,			    Length = 60,	Type = 3} --NOPE NOT IN Classic   Demonic Empowerment || Renforcement démoniaque
+			[59] = {Name = GetSpellInfo(133),	Mana = 50,			    Length = 60,	Type = 3}, --NOPE NOT IN Classic   Demonic Empowerment || Renforcement démoniaque
+		        [60] = {Name = GetSpellInfo(17937),	Mana = 50 ,              Length = 120,	    Type = 4} -- Curse of Shadows
 		}
 		-- Type 0 = Pas de Timer || no timer
 		-- Type 1 = Timer permanent principal || Standing main timer
@@ -236,15 +237,16 @@ function Necrosis:SpellLocalize(tooltip)
 	-- Curses || Malédiction
 	local buttonTooltip = new("array",
 		"Weakness",
-		"Agony",
+		"Shadows",
 		"Tongues",
 		"Exhaust",
 		"Elements",
+		"Agony",
 		"Doom",
 		"Corruption"
 	)
 	local buttonName = new("array",
-		23, 22, 25, 40, 26, 16, 14
+		23, 60, 25, 40, 26, 16, 22, 14
 	)
 	for i, button in ipairs(buttonTooltip) do
 		if not self.TooltipData[button] then
